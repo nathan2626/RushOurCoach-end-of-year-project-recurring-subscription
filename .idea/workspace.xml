@@ -2,7 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d170ebe9-431a-4f4c-bbc2-5f04c9cac145" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AnnulationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/InformationsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ReservationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReservationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SingleCategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SingleCoachController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/AnnulationFormRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/ReservationFormRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/AnnulationMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/ReservationMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/configuration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/reservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_18_131321_create_reservations_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/ReservationSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/Coach-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/Coach-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/Coach-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/Coach-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/bg-price-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/bg-price-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/bg-price-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/hero-small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/hero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/logo-Roc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-1-Roc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-1-large-Roc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-2-Roc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-2-large-Roc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-3-Roc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-3-large-Roc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nat-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/video.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/fr/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/fr/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/fr/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/fr/validation-inline.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/fr/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/abstracts/_functions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/abstracts/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/abstracts/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/base/_animations.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/base/_base.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/base/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/base/_utilities.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_bg-video.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_button.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_composition.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_feature-box.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_form.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_popup.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_story.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/layout/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/layout/_grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/layout/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/layout/_navigation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/pages/_home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/annulation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/categories.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/annulation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/reservation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/scroll_to_top.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reservation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/single_category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/single_coach.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/RushOurCoach.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RushOurCoach.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/logging.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +218,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
     </include_path>
   </component>
   <component name="ProjectId" id="1r7S92UArS3fJwYPBbJwDKdyvrh" />
@@ -135,8 +231,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\natha\OneDrive\Bureau\Cours-Webstart\2eme année\projet-de-fin-dannee\RushOurCoach" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -152,7 +254,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618325480000</updated>
-      <workItem from="1618325481847" duration="301000" />
+      <workItem from="1618325481847" duration="2449000" />
     </task>
     <servers />
   </component>
