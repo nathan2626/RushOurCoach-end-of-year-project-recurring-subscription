@@ -21,6 +21,13 @@ class ContactController extends Controller
         $emailContactVerif =  $request->get('email_contact');
         $fullNameContactVerif =  $request->get('full_name_contact');
 
+        $emailIsValid = $request->get('email_contact');
+        $email_format = '#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';
+
+        if(!preg_match($email_format, $emailIsValid)) {
+            return response()->json(['error' => "Le champ email n'est pas valide."], 400);
+        }
+
         if(!$emailContactVerif && !$fullNameContactVerif){
             return response()->json(['error' => "Les champs email et nom/prénom sont obligatoires."], 400);
         }

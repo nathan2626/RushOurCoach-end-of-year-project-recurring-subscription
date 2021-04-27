@@ -25,6 +25,15 @@ class IndexController extends Controller
         $emailContactVerif =  $request->get('email_contact');
         $fullNameContactVerif =  $request->get('full_name_contact');
 
+        // Because I don’t go through the requests (top reason)
+        $emailIsValid = $request->get('email_contact');
+        $email_format = '#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';
+
+        if(!preg_match($email_format, $emailIsValid)) {
+            return redirect('/#contactUs')
+                ->with('error',"Le champ email n'est pas valide.")->withInput();
+        }
+
         if(!$emailContactVerif && !$fullNameContactVerif){
             return redirect('/#contactUs')
                 ->with('error',"Les champs email et nom/prénom sont obligatoires.")->withInput();
