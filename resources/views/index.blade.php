@@ -202,7 +202,28 @@
         <div class="row">
             <div class="book">
                 <div class="book__form">
-                    <form action="#" class="form">
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="notification isBadNotification u-margin-bottom-medium">
+                                <p>{{ $error }}</p>
+                            </div>
+                        @endforeach
+                    @endif
+
+                    @if (session('error'))
+                        <div class="notification isBadNotification u-margin-bottom-medium">
+                            <p>{{ session('error') }}</p>
+                        </div>
+                    @endif
+
+                    @if (session('status'))
+                        <div class="notification isGoodNotification u-margin-bottom-medium">
+                            <p>{{ session('status') }}</p>
+                        </div>
+                    @endif
+
+                    <form action="/contact" class="form" method="post">
+                        @csrf
                         <div class="u-margin-bottom-medium">
                             <h2 class="heading-secondary">
                                 Contactez-nous
@@ -210,32 +231,37 @@
                         </div>
 
                         <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Nom / Prénom" id="name" required>
-                            <label for="name" class="form__label">Nom / Prénom</label>
+                            <input type="text" class="form__input" placeholder="Nom / Prénom" name="full_name_contact" value="{{ old('full_name_contact') }}" id="full_name_contact" required>
+                            <label for="full_name_contact" class="form__label">Nom / Prénom</label>
                         </div>
 
                         <div class="form__group">
-                            <input type="email" class="form__input" placeholder="Votre email" id="email" required>
-                            <label for="email" class="form__label">Votre email</label>
+                            <input type="email" class="form__input" placeholder="Votre email" name="email_contact" value="{{ old('email_contact') }}" id="email_contact" required>
+                            <label for="email_contact" class="form__label">Votre email</label>
                         </div>
 
                         <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Votre message" id="message" required>
-                            <label for="message" class="form__label">Votre message</label>
+                            <input type="text" class="form__input" placeholder="Sujet" name="subject_contact" id="subject_contact" value="{{ old('subject_contact') }}">
+                            <label for="subject_contact" class="form__label">Sujet</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Votre message" name="message_contact" id="message_contact" value="{{ old('message_contact') }}">
+                            <label for="message_contact" class="form__label">Votre message</label>
                         </div>
 
                         <div class="form__group u-margin-bottom-medium">
                             <div class="form__radio-group">
-                                <input type="radio" class="form__radio-input" id="coach" name="size">
-                                <label for="coach" class="form__radio-label">
+                                <input type="radio" class="form__radio-input" value="coach" id="coach_select_contact" name="coach_select_contact">
+                                <label for="coach_select_contact" class="form__radio-label">
                                     <span class="form__radio-button"></span>
                                     Coach
                                 </label>
                             </div>
 
                             <div class="form__radio-group">
-                                <input type="radio" class="form__radio-input" id="amateur" name="size">
-                                <label for="amateur" class="form__radio-label">
+                                <input type="radio" class="form__radio-input" value="amateur" id="amateur_select_contact" name="amateur_select_contact">
+                                <label for="amateur_select_contact" class="form__radio-label">
                                     <span class="form__radio-button"></span>
                                     Amateur
                                 </label>
@@ -243,7 +269,7 @@
                         </div>
 
                         <div class="form__group">
-                            <button class="btn btn--green">Envoyer &rarr;</button>
+                            <button type="submit" class="btn btn--green">Envoyer &rarr;</button>
                         </div>
                     </form>
                 </div>

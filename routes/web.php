@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::post('/contact', [App\Http\Controllers\IndexController::class, 'sendContact'])->name('index.send');
 
 Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservation.index');
 Route::post('/reservation', [App\Http\Controllers\ReservationController::class, 'sendReservation'])->name('reservation.send');
-
 
 Route::get('/reservation/annulation/{token}', [App\Http\Controllers\AnnulationController::class, 'index'])->name('annulation.index');
 Route::post('/reservation/annulation/{token}', [App\Http\Controllers\AnnulationController::class, 'delete'])->name('annulation.delete');
@@ -27,3 +27,4 @@ Route::get('/categories', [App\Http\Controllers\CategoriesController::class, 'in
 Route::get('/categories/category', [App\Http\Controllers\SingleCategoryController::class, 'index'])->name('index');
 
 Route::get('/categories/category/coach', [App\Http\Controllers\SingleCoachController::class, 'index'])->name('index');
+
