@@ -7,9 +7,11 @@
 
 
 <header class="">
-    <div class="header__logo-box">
-        <img src="/img/logo-Roc.png" alt="Logo" class="u-margin-top-small header__logo">
-    </div>
+    <a href="/">
+        <div class="header__logo-box">
+            <img src="/img/logo-Roc.png" alt="Logo" class="u-margin-top-small header__logo">
+        </div>
+    </a>
 </header>
 
 <main>

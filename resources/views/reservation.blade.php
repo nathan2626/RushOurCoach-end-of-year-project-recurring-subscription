@@ -6,9 +6,11 @@
 @include('partials.navbar')
 
 <header class="">
-    <div class="header__logo-box">
-        <img src="/img/logo-Roc.png" alt="Logo" class="header__logo u-margin-top-small">
-    </div>
+    <a href="/">
+        <div class="header__logo-box">
+            <img src="/img/logo-Roc.png" alt="Logo" class="header__logo u-margin-top-small">
+        </div>
+    </a>
 </header>
 
 <main>
