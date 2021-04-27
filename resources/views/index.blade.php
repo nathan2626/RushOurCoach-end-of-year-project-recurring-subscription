@@ -268,6 +268,8 @@
                             </div>
                         </div>
 
+{{--                        <div id="g_recaptcha"></div>--}}
+
                         <div class="form__group">
                             <button type="submit" class="btn btn--green">Envoyer &rarr;</button>
                         </div>

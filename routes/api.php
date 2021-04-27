@@ -24,3 +24,4 @@ Route::post('/reservation', [App\Http\Controllers\Api\ReservationController::cla
 
 Route::post('/reservation/annulation/{token}', [App\Http\Controllers\Api\ReservationController::class, 'cancel'])->name('cancel');
 
+Route::post('/contact', [App\Http\Controllers\Api\ContactController::class, 'send'])->name('send');
