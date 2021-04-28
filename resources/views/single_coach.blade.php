@@ -54,10 +54,6 @@
         </div>
         <div id="map" class="row"></div>
 
-        <section class="row" style="display: flex; justify-content: center;">
-            <div id="map" style="height:400px; width: 100%;"></div>
-        </section>
-
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXu4bsQdGpWpnbm6gpVmYFKZU1b14aYE&callback=initMap&libraries=&v=weekly"

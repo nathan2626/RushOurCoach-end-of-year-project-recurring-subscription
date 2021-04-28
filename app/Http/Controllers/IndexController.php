@@ -11,7 +11,11 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $emailContact = Config::get('contact.email');
+        $telContact = Config::get('contact.tel');
+        $addressContact = Config::get('contact.address');
+
+        return view('index', compact('emailContact', 'telContact', 'addressContact'));
     }
 
     public function sendContact(ContactSendRequest $request)

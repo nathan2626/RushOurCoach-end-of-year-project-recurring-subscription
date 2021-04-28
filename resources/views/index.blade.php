@@ -200,7 +200,7 @@
 
     <section class="section-book" id="contactUs">
         <div class="row">
-            <div class="book">
+            <div class="book u-margin-bottom-medium">
                 <div class="book__form">
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
@@ -276,6 +276,30 @@
                     </form>
                 </div>
             </div>
+            <div class="u-center-text u-margin-bottom-medium" style=" box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.53); -webkit-box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.53); -moz-box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.53); border-radius: 5px; background-color: rgba(255, 255, 255, 0.15) ; margin: 10px 10px; padding: 20px;">
+                <p class="paragraph">
+                    @if ($addressContact)
+                        <a style="text-decoration: none; color: black;" href="mailto:{{$addressContact}}"><strong>Adresse :</strong>
+                        {{$addressContact}} </a>
+                    @endif
+                </p>
+                <p class="paragraph">
+                    @if ($telContact)
+                        <a style="text-decoration: none; color: black;" href="tel:{{$telContact}}"><strong>Teléphone :</strong>
+                            {{$telContact}} </a>
+                    @endif
+                </p>
+                <p class="paragraph">
+                    @if ($emailContact)
+                        <a style="text-decoration: none; color: black;" href="mailto:{{$emailContact}}"><strong>Email :</strong>
+                            {{$emailContact}} </a>
+                    @endif
+                </p>
+            </div>
+            <div id="map" class="row"></div>
+
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
         </div>
     </section>
 </main>

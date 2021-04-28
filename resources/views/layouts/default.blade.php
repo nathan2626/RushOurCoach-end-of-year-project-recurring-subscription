@@ -37,6 +37,11 @@
 
 @include('partials.scroll_to_top')
 
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyXu4bsQdGpWpnbm6gpVmYFKZU1b14aYE&callback=initMap&libraries=&v=weekly"
+    async
+></script>
+
 </body>
 
 </html>
