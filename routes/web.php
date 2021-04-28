@@ -23,6 +23,7 @@ Route::get('/reservation/annulation/{token}', [App\Http\Controllers\AnnulationCo
 Route::post('/reservation/annulation/{token}', [App\Http\Controllers\AnnulationController::class, 'delete'])->name('annulation.delete');
 
 Route::get('/categories', [App\Http\Controllers\CategoriesController::class, 'index'])->name('index');
+Route::get('/subscriptions', [App\Http\Controllers\SubscriptionsController::class, 'index'])->name('index');
 
 Route::get('/categories/category', [App\Http\Controllers\SingleCategoryController::class, 'index'])->name('index');
 
