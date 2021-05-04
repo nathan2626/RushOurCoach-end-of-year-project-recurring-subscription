@@ -17,16 +17,16 @@ with multi-skill sports coaches.
 
 
 # Table of Contents
-<hr>
+
 
 * 📌 [About the Project](#about-the-project)
-* 📌 [Project Setup](project-setup)
+* 📌 [Project Setup](#project-setup)
 * 📌 [Built With](#built-with)
 * 📌 [Contact](#contact)
 * 📌 [License](#license)
 
 ## About The Project
-<hr>
+
 
 ![Product Name Screen Shot][product-screenshot]
 
@@ -60,7 +60,7 @@ with multi-skill sports coaches. 🥋</p>
     - 📜 contact (via contact section) with ROC
     
 ## Project Setup
-<hr>
+
 
 Installation of project components `package.json`
 ```
@@ -78,7 +78,7 @@ php artisan serve
 ```
 
 ### Built With 
-<hr>
+
 
 <p>
 
@@ -95,7 +95,7 @@ php artisan serve
 </p>
 
 ## Contact
-<hr>
+
 
 - Linkedin : [Nathan Journo][linkedin-url]
 
@@ -104,7 +104,7 @@ php artisan serve
 - Portfolio : [BokerTov Agency](https://bokertov-agency.com/)
 
 ## License
-<hr>
+
 
 © Rush Our Coach licensed under the GNU Affero General Public License v3.0 [GNU AGPLv3](https://opensource.org/licenses/agpl-3.0).
 
