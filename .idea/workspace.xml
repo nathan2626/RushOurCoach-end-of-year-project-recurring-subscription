@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d170ebe9-431a-4f4c-bbc2-5f04c9cac145" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/rocReadMe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,6 +155,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\natha\OneDrive\Bureau\Cours-Webstart\2eme année\projet-de-fin-dannee\RushOurCoach" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\natha\OneDrive\Bureau\Cours-Webstart\2eme année\projet-de-fin-dannee\RushOurCoach\public\img" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -174,7 +179,9 @@
       <workItem from="1619516622582" duration="18556000" />
       <workItem from="1619617538085" duration="5660000" />
       <workItem from="1619962392379" duration="641000" />
-      <workItem from="1620112863095" duration="9458000" />
+      <workItem from="1620112863095" duration="9950000" />
+      <workItem from="1620125484062" duration="33000" />
+      <workItem from="1620125545457" duration="484000" />
     </task>
     <servers />
   </component>

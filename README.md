@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo">
-    <img src="public/img/logo-Roc.png" alt="Logo" width="200">
+    <img src="public/img/rocReadMe.png" alt="Logo" width="300">
   </a>
 </p>
 <p align="center">
@@ -70,6 +70,7 @@ npm install
 composer install
 ```
 Compiles and hot-reloads for development
+
 ```
 npm run dev
 ```
@@ -77,7 +78,7 @@ npm run dev
 php artisan serve
 ```
 
-### Built With 
+## Built With 
 
 
 <p>
