@@ -246,7 +246,8 @@
                         </div>
 
                         <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Votre message" name="message_contact" id="message_contact" value="{{ old('message_contact') }}">
+                            <textarea class="form__input" id="message_contact" name="message_contact" placeholder="Votre message" >{{ old('message_contact') }}</textarea>
+{{--                            <input type="text" class="form__input" placeholder="Votre message" name="message_contact" id="message_contact" value="{{ old('message_contact') }}">--}}
                             <label for="message_contact" class="form__label">Votre message</label>
                         </div>
 

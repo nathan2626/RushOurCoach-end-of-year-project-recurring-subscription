@@ -34,7 +34,7 @@
                             </h4>
                             <div class="card__details">
                                 <ul>
-                                    <li>Yoga-Hatha</li>
+                                    <li>4 cours par mois</li>
                                     <li>Yoga-Ashtanga</li>
                                     <li>Yoga-Vinyasa</li>
                                     <li>Yoga-Prénatal</li>
@@ -45,7 +45,7 @@
                             <div class="card__cta">
                                 <div class="card__price-box">
                                     <p class="card__price-only">à partir de </p>
-                                    <p class="card__price-value">24.90€</p>
+                                    <p class="card__price-value">19.90€</p>
                                 </div>
                                 <a href="/categories/category" class="btn btn--white">Voir les coachs !</a>
                             </div>
