@@ -7,10 +7,10 @@
   </a>
 </p>
 <p align="center">
-Plateforme de mise en relation avec des coachs sportifs multi-compétences !
-
+Rush Our Coach sport is a platform for connecting <br>
+with multi-skill sports coaches.
 <br />
-    27/06/2021
+    📆27/06/2021📆
     <br />
     <br />
 </p>

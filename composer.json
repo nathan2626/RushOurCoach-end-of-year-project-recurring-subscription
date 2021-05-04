@@ -1,9 +1,9 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "A platform for connecting <br>\nwith multi-skill sports coaches.",
     "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "license": "GNU AGPLv3",
     "require": {
         "php": "^7.3|^8.0",
         "anhskohbo/no-captcha": "^3.3",
