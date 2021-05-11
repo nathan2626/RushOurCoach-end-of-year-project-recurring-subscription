@@ -37,3 +37,7 @@ Route::get('/admin/articles', [App\Http\Controllers\Admin\ArticlesController::cl
 Route::get('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'index'])->name('index');
 Route::get('/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->name('index');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -200,7 +200,7 @@
 
     <section class="section-book" id="contactUs">
         <div class="row">
-            <div class="book u-margin-bottom-medium">
+            <div class="book u-margin-bottom-medium" style="width: -webkit-fill-available;">
                 <div class="book__form">
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
