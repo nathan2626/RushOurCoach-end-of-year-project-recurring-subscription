@@ -29,3 +29,11 @@ Route::get('/categories/category', [App\Http\Controllers\SingleCategoryControlle
 
 Route::get('/categories/category/coach', [App\Http\Controllers\SingleCoachController::class, 'index'])->name('index');
 
+
+// Admin part
+
+Route::get('/admin', [App\Http\Controllers\Admin\IndexController::class, 'index'])->name('index');
+Route::get('/admin/articles', [App\Http\Controllers\Admin\ArticlesController::class, 'index'])->name('index');
+Route::get('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'index'])->name('index');
+Route::get('/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->name('index');
+
