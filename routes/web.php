@@ -29,6 +29,9 @@ Route::get('/categories/category', [App\Http\Controllers\SingleCategoryControlle
 
 Route::get('/categories/category/coach', [App\Http\Controllers\SingleCoachController::class, 'index'])->name('index');
 
+Route::get('/blog/articles', [App\Http\Controllers\ArticlesController::class, 'index'])->name('index');
+Route::get('/blog/articles/article', [App\Http\Controllers\ArticlesController::class, 'single'])->name('index.single');
+
 
 // Admin part
 
