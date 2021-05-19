@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
             $table->string('image');
             $table->string('title');
+            $table->string('body');
             $table->boolean('published')->default(0);
             $table->dateTime('date_of_publication');
         });

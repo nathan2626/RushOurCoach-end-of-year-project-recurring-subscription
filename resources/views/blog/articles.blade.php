@@ -14,38 +14,14 @@
                 <small>Secondary Text</small>
             </h1>
 
+            @foreach($articles as $article)
+
             <!-- Blog post-->
             <div class="card mb-4">
                 <img class="card-img-top" src="/img/article1.png" alt="Card image cap" />
                 <div class="card-body">
-                    <h2 class="card-title">Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a class="btn btn-primary" href="#!">Read More →</a>
-                </div>
-                <div class="card-footer text-muted">
-                    Posted on January 1, 2021 by
-                    <a href="#!">Start Bootstrap</a>
-                </div>
-            </div>
-            <!-- Blog post-->
-            <div class="card mb-4">
-                <img class="card-img-top" src="/img/article2.png" alt="Card image cap" />
-                <div class="card-body">
-                    <h2 class="card-title">Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a class="btn btn-primary" href="#!">Read More →</a>
-                </div>
-                <div class="card-footer text-muted">
-                    Posted on January 1, 2021 by
-                    <a href="#!">Start Bootstrap</a>
-                </div>
-            </div>
-            <!-- Blog post-->
-            <div class="card mb-4">
-                <img class="card-img-top" src="/img/article3.png" alt="Card image cap" />
-                <div class="card-body">
-                    <h2 class="card-title">Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    <h2 class="card-title">{{ $article->title }}</h2>
+                    <p class="card-text">{{ substr($article->body, 0, 150) . '...' }}</p>
                     <a class="btn btn-primary" href="#!">Read More →</a>
                 </div>
                 <div class="card-footer text-muted">
@@ -54,6 +30,7 @@
                 </div>
             </div>
 
+            @endforeach
             <!-- Pagination-->
             <ul class="pagination justify-content-center mb-4">
                 <li class="page-item"><a class="page-link" href="#!">← Older</a></li>
