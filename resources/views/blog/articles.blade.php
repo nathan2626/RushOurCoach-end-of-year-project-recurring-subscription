@@ -14,6 +14,7 @@
                 <small>Secondary Text</small>
             </h1>
 
+            @if($articles)
             @foreach($articles as $article)
 
             <!-- Blog post-->
@@ -31,6 +32,16 @@
             </div>
 
             @endforeach
+            @else
+                <!-- Blog post-->
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="/img/article1.png" alt="Card image cap" />
+                        <div class="card-body">
+                            <h2 class="card-title">Aucun articles pour le moment 😣</h2>
+                        </div>
+                    </div>
+            @endif
+            
             <!-- Pagination-->
             <ul class="pagination justify-content-center mb-4">
                 <li class="page-item"><a class="page-link" href="#!">← Older</a></li>
