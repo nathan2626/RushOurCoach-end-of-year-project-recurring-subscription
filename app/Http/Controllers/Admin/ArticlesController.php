@@ -18,7 +18,7 @@ class ArticlesController extends Controller
         return view('/admin/articles', compact('articles'));
     }
 
-    public function addArticle(AddArticleFormRequest $request)
+    public function addArticle(Request $request)
     {
         $title = $request->get('title');
         $body = $request->get('body');
@@ -26,6 +26,15 @@ class ArticlesController extends Controller
         $date_of_publication = $request->get('date_of_publication');
         $published = $request->get('published');
 
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'required',
+            'date_of_publication' => 'required',
+            'published' => 'required'
+
+        ]);
+        
         $params = [
             'title' => $request->get('title'),
             'body' => $request->get('body'),

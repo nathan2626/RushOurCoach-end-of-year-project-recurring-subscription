@@ -82,6 +82,26 @@
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div class="notification isBadNotification u-margin-bottom-medium">
+                                    <p>{{ $error }}</p>
+                                </div>
+                            @endforeach
+                        @endif
+
+                        @if (session('error'))
+                            <div class="notification isBadNotification u-margin-bottom-medium">
+                                <p>{{ session('error') }}</p>
+                            </div>
+                        @endif
+
+                        @if (session('status'))
+                            <div class="notification isGoodNotification u-margin-bottom-medium">
+                                <p>{{ session('status') }}</p>
+                            </div>
+                        @endif
 
                         <div class="card mb-3">
                             <div class="card-header">
