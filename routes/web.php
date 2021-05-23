@@ -41,6 +41,10 @@ Route::get('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsCont
 Route::get('/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->name('index');
 
 Route::post('/admin/articles', [App\Http\Controllers\Admin\ArticlesController::class, 'addArticle'])->name('index.addArticle');
+//Route::post('/admin/articles', [App\Http\Controllers\Admin\ArticlesController::class, 'editArticle'])->name('index.editArticle');
+//Route::post('/admin/articles', [App\Http\Controllers\Admin\ArticlesController::class, 'deleteArticle'])->name('index.deleteArticle');
+Route::post('/admin/articles/edit/{id}', [App\Http\Controllers\Admin\ArticlesController::class, 'editArticle'])->name('index.editArticle');
+Route::post('/admin/articles/delete/{id}', [App\Http\Controllers\Admin\ArticlesController::class, 'deleteArticle'])->name('index.deleteArticle');
 
 
 Auth::routes();

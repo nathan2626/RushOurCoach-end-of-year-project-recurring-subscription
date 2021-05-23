@@ -199,81 +199,142 @@
                                         </thead>
                                         <tbody>
 
+                                            @if($articles)
+                                            @foreach($articles as $article)
                                             <tr>
                                                 <td>
                                                     <div class="blog_list"><img class="img-fluid d-none d-lg-block" alt="image" src="https://via.placeholder.com/180x120" /></div>
-                                                    <h4> Vivamus condimentum rutrum odio</h4>
-                                                    <p>Posted by <b>Administrator</b> at Nov 29 2018</p>
-                                                    <p>Nulla cursus maximus lacus at efficitur. In lobortis ante vitae nulla semper, in volutpat libero aliquet. Morbi sit amet nibh vitae metus interdum finibus sed nec nisl. Ut quam dolor, bibendum id maximus ut, suscipit consectetur sem.</p>
+                                                    <h4>{{ $article->title }}</h4>
+                                                    <p>Posted by <b>Administrator</b> at {{ $article->created_at }}</p>
+                                                    <p>{{ $article->body }}</p>
                                                 </td>
 
                                                 <td>Articles</td>
 
                                                 <td>
-                                                    <a href="#" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i> Edit</a>
-                                                    <a href="#" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i> Delete</a>
+
+                                                    <button class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#modal_edit_article{{$article->id}}">
+                                                        <i class="far fa-edit" aria-hidden="true"></i>Edit
+                                                    </button>
+                                                    <div class="modal fade custom-modal" tabindex="-1" role="dialog" aria-labelledby="modal_edit_article{{$article->id}}" aria-hidden="true" id="modal_edit_article{{$article->id}}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+
+                                                                <form action="/admin/articles/edit/{{$article->id}}" method="post" enctype="multipart/form-data">
+                                                                    @csrf
+
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Edit this article</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                            <span class="sr-only">Close</span>
+                                                                        </button>
+                                                                    </div>
+
+                                                                    <div class="modal-body">
+
+                                                                        <div class="row">
+                                                                            <div class="col-lg-12">
+
+
+                                                                                <div class="form-group">
+                                                                                    <label for="title">Title</label>
+                                                                                    <input class="form-control" name="title" value="{{ $article->title }}" type="text" id="title" required />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-lg-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="body">Body</label>
+                                                                                    <textarea id="body" class="form-control" name="body" required>
+                                                                                        {{ $article->body }}
+                                                                                    </textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+
+                                                                            <div class="col-lg-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="published">Published ?</label>
+                                                                                    <select name="published" id="published" class="form-control" required>
+                                                                                        <option value="0">- Choose -</option>
+                                                                                        <option value="0">Not Published</option>
+                                                                                        <option value="1">Published</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-lg-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="date_of_publication">Date of publication</label>
+                                                                                    <input class="form-control" value="{{ $article->date_of_publication }}" id="date_of_publication" name="date_of_publication" type="date" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="image">Image :</label>
+                                                                            <br />
+                                                                            <input type="file" name="image" id="name" value="{{ $article->image }}" required>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-primary">Edit article</button>
+                                                                    </div>
+
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <button class="btn btn-danger btn-sm btn-block mt-2" data-toggle="modal" data-target="#modal_delete_article{{$article->id}}">
+                                                        <i class="fas fa-trash" aria-hidden="true"></i>Delete
+                                                    </button>
+                                                    <div class="modal fade custom-modal" tabindex="-1" role="dialog" aria-labelledby="modal_delete_article{{$article->id}}" aria-hidden="true" id="modal_delete_article{{$article->id}}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+
+                                                                <form action="/admin/articles/delete/{{$article->id}}" method="post" enctype="multipart/form-data">
+                                                                    @csrf
+
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Delete this article</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                            <span class="sr-only">Close</span>
+                                                                        </button>
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-primary">Delete article</button>
+                                                                    </div>
+
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </td>
                                             </tr>
+                                            @endforeach
+                                            @else
                                             <tr>
                                                 <td>
                                                     <div class="blog_list"><img class="img-fluid d-none d-lg-block" alt="image" src="https://via.placeholder.com/180x120" /></div>
-                                                    <h4>Duis scelerisque eros sit amet risus lobortis</h4>
-                                                    <p>Posted by <b>Administrator</b> at Nov 29 2018</p>
-                                                    <p>Nulla cursus maximus lacus at efficitur. In lobortis ante vitae nulla semper, in volutpat libero aliquet. Morbi sit amet nibh vitae metus interdum finibus sed nec nisl. Ut quam dolor, bibendum id maximus ut, suscipit consectetur sem.</p>
-                                                </td>
-
-                                                <td>Articles</td>
-
-                                                <td>
-                                                    <a href="#" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i> Edit</a>
-                                                    <a href="#" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i> Delete</a>
+                                                    <h4>Aucun article</h4>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="blog_list"><img class="img-fluid d-none d-lg-block" alt="image" src="https://via.placeholder.com/180x120" /></div>
-                                                    <h4>Vestibulum justo et feugiat consectetur</h4>
-                                                    <p>Posted by <b>Administrator</b> at Nov 29 2018</p>
-                                                    <p>Nulla cursus maximus lacus at efficitur. In lobortis ante vitae nulla semper, in volutpat libero aliquet. Morbi sit amet nibh vitae metus interdum finibus sed nec nisl. Ut quam dolor, bibendum id maximus ut, suscipit consectetur sem.</p>
-                                                </td>
+                                            @endif
 
-                                                <td>News</td>
-
-                                                <td>
-                                                    <a href="#" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i> Edit</a>
-                                                    <a href="#" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i> Delete</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="blog_list"><img class="img-fluid d-none d-lg-block" alt="image" src="https://via.placeholder.com/180x120" /></div>
-                                                    <h4>Quisque ac justo porttitor mi egestas fermentum</h4>
-                                                    <p>Posted by <b>Administrator</b> at Nov 29 2018</p>
-                                                    <p>Nulla cursus maximus lacus at efficitur. In lobortis ante vitae nulla semper, in volutpat libero aliquet. Morbi sit amet nibh vitae metus interdum finibus sed nec nisl. Ut quam dolor, bibendum id maximus ut, suscipit consectetur sem.</p>
-                                                </td>
-
-                                                <td>News</td>
-
-                                                <td>
-                                                    <a href="#" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i> Edit</a>
-                                                    <a href="#" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i> Delete</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="blog_list"><img class="img-fluid d-none d-lg-block" alt="image" style="max-width:180px; height:auto;" src="https://via.placeholder.com/180x120" /></div>
-                                                    <h4>Aenean vehicula erat id mauris porttitor</h4>
-                                                    <p>Posted by <b>Administrator</b> at Nov 29 2018</p>
-                                                    <p>Nulla cursus maximus lacus at efficitur. In lobortis ante vitae nulla semper, in volutpat libero aliquet. Morbi sit amet nibh vitae metus interdum finibus sed nec nisl. Ut quam dolor, bibendum id maximus ut, suscipit consectetur sem.</p>
-                                                </td>
-
-                                                <td>News</td>
-
-                                                <td>
-                                                    <a href="#" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i> Edit</a>
-                                                    <a href="#" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i> Delete</a>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
