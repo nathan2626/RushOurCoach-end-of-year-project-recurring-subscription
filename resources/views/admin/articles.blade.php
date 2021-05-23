@@ -82,24 +82,30 @@
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        
+
                         @if ($errors->any())
                             @foreach ($errors->all() as $error)
                                 <div class="notification isBadNotification u-margin-bottom-medium">
-                                    <p>{{ $error }}</p>
+                                    <p class="text-danger">{{ $error }}</p>
                                 </div>
                             @endforeach
                         @endif
 
                         @if (session('error'))
                             <div class="notification isBadNotification u-margin-bottom-medium">
-                                <p>{{ session('error') }}</p>
+                                <p class="text-danger">{{ session('error') }}</p>
                             </div>
                         @endif
 
-                        @if (session('status'))
-                            <div class="notification isGoodNotification u-margin-bottom-medium">
-                                <p>{{ session('status') }}</p>
+                        @if (session('status') && session('good') === '1')
+                            <div class="notification isGoodNotification text-success u-margin-bottom-medium">
+                                <p class="text-success">{{ session('status') }}</p>
+                            </div>
+                        @endif
+
+                        @if (session('status') && session('good') === '0')
+                            <div class="notification isBadNotification u-margin-bottom-medium">
+                                <p class="text-danger">{{ session('status') }}</p>
                             </div>
                         @endif
 

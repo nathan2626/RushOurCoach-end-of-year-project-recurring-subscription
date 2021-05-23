@@ -34,7 +34,7 @@ class ArticlesController extends Controller
             'published' => 'required'
 
         ]);
-        
+
         $params = [
             'title' => $request->get('title'),
             'body' => $request->get('body'),
@@ -52,7 +52,8 @@ class ArticlesController extends Controller
         ]);
 
         return redirect('/admin')
-            ->with('status', 'Votre article a bien été créé !');
+            ->with('status', 'Votre article a bien été créé !')
+            ->with('good', '1');
 
     }
 
@@ -62,7 +63,8 @@ class ArticlesController extends Controller
 
         if(!$article) {
             return redirect('/admin')
-                ->with('status', "L'article n'exite pas !");
+                ->with('status', "L'article n'exite pas !")
+                ->with('good', '0');
         }
 
         $request->validate([
@@ -94,7 +96,8 @@ class ArticlesController extends Controller
 
 //        dd($article);
         return redirect('/admin')
-            ->with('status', 'Votre article a bien été modifié !');
+            ->with('status', 'Votre article a bien été modifié !')
+            ->with('good', '1');
 
     }
 
@@ -104,14 +107,16 @@ class ArticlesController extends Controller
 
         if(!$article) {
             return redirect('/admin')
-                ->with('status', "L'article n'exite pas !");
+                ->with('status', "L'article n'exite pas !")
+                ->with('good', '0');
         }
 
         DB::table('articles')->where('id', '=',  $id)->delete();
 
 //        dd($article);
         return redirect('/admin')
-            ->with('status', 'Votre article a bien été supprimée !');
+            ->with('status', 'Votre article a bien été supprimée !')
+            ->with('good', '1');
 
     }
 
