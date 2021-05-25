@@ -7,6 +7,7 @@ use App\Http\Requests\AddArticleFormRequest;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ArticlesController extends Controller
 {
@@ -36,23 +37,22 @@ class ArticlesController extends Controller
         ]);
 
 
-// IMAGE MANAGEMENT
+        // IMAGE MANAGEMENT
         $count = DB::table('articles')->count()+1;
-//        dd($count);
+
         if ($image) {
 
             $request->validate([
                 'image' => 'mimes:jpeg,bmp,png'
             ]);
-//                dd($request['image_confirmation']);
+
             $imageName = $count.'.'.$image->extension();
-//            dd($imageName, $image);
 
             $image->move(public_path().'/img/', $imageName);
 
             $image = $imageName;
         }
-//        dd($image);
+
         $params = [
             'title' => $request->get('title'),
             'body' => $request->get('body'),
@@ -86,19 +86,75 @@ class ArticlesController extends Controller
                 ->with('good', '0');
         }
 
+        // If I get image
+        $image = $request->file('image');
+        if($image) {
+//            $imageDelete = $article->image;
+            $imageDelete = public_path().'/img/'.$article->image;
+            File::delete($imageDelete);
+//            $image->move(public_path().'/img/', $imageDelete);
+
+            $request->validate([
+                'title' => 'required',
+                'body' => 'required',
+                'image' => 'required',
+                'date_of_publication' => 'required',
+                'published' => 'required'
+
+            ]);
+
+            // IMAGE MANAGEMENT
+            $count = DB::table('articles')->count()+1;
+            $request->validate([
+                'image' => 'mimes:jpeg,bmp,png'
+            ]);
+
+            $imageName = $count.'.'.$image->extension();
+
+            $image->move(public_path().'/img/', $imageName);
+
+            $image = $imageName;
+
+
+            $params = [
+                'title' => $request->get('title'),
+                'body' => $request->get('body'),
+                'date_of_publication' => $request->get('date_of_publication'),
+                'published' => $request->get('published')
+            ];
+
+            DB::table('articles')->where([
+                ['id', '=', $id]
+            ])->update([
+                'title' => $params['title'],
+                'body' => $params['body'],
+                'date_of_publication' => $params['date_of_publication'],
+                'published' => $params['published']
+            ]);
+
+//        dd($article);
+            return redirect('/admin')
+                ->with('status', 'Votre article a bien été modifié !')
+                ->with('good', '1');
+
+        }
+
+        // else
+        $image = $article->image;
+
         $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'image' => 'required',
             'date_of_publication' => 'required',
             'published' => 'required'
 
         ]);
 
+
         $params = [
             'title' => $request->get('title'),
             'body' => $request->get('body'),
-            'image' => '15.png',
+            'image' => $image,
             'date_of_publication' => $request->get('date_of_publication'),
             'published' => $request->get('published')
         ];

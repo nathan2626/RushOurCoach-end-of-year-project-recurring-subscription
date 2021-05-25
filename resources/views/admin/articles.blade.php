@@ -194,7 +194,7 @@
                                                     <div class="form-group">
                                                         <label for="image">Image :</label>
                                                         <br />
-                                                        <input type="file" name="image" id="image" required>
+                                                        <input type="file" name="image" id="image">
                                                     </div>
 
                                                 </div>
@@ -305,7 +305,7 @@
                                                                         <div class="form-group">
                                                                             <label for="image">Image :</label>
                                                                             <br />
-                                                                            <input type="file" name="image" id="name" value="{{ $article->image }}" required>
+                                                                            <input type="file" name="image" id="image" value="{{ $article->image }}">
                                                                         </div>
 
                                                                     </div>

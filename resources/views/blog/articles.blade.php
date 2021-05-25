@@ -22,6 +22,7 @@
                 <img class="card-img-top" src="/img/article1.png" alt="Card image cap" />
                 <div class="card-body">
                     <h2 class="card-title">{{ $article->title }}</h2>
+                    <!-- Optimiser les perfs (gerer au niveau du back le substring) -->
                     <p class="card-text">{{ substr($article->body, 0, 150) . '...' }}</p>
                     <a class="btn btn-primary" href="#!">Read More →</a>
                 </div>
@@ -41,7 +42,7 @@
                         </div>
                     </div>
             @endif
-            
+
             <!-- Pagination-->
             <ul class="pagination justify-content-center mb-4">
                 <li class="page-item"><a class="page-link" href="#!">← Older</a></li>
