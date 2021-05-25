@@ -194,7 +194,7 @@
                                                     <div class="form-group">
                                                         <label for="image">Image :</label>
                                                         <br />
-                                                        <input type="file" name="image" id="name" required>
+                                                        <input type="file" name="image" id="image" required>
                                                     </div>
 
                                                 </div>

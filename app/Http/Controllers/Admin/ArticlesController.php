@@ -22,7 +22,7 @@ class ArticlesController extends Controller
     {
         $title = $request->get('title');
         $body = $request->get('body');
-        $image = $request->get('image');
+        $image = $request->file('image');
         $date_of_publication = $request->get('date_of_publication');
         $published = $request->get('published');
 
@@ -35,14 +35,33 @@ class ArticlesController extends Controller
 
         ]);
 
+
+// IMAGE MANAGEMENT
+        $count = DB::table('articles')->count()+1;
+//        dd($count);
+        if ($image) {
+
+            $request->validate([
+                'image' => 'mimes:jpeg,bmp,png'
+            ]);
+//                dd($request['image_confirmation']);
+            $imageName = $count.'.'.$image->extension();
+//            dd($imageName, $image);
+
+            $image->move(public_path().'/img/', $imageName);
+
+            $image = $imageName;
+        }
+//        dd($image);
         $params = [
             'title' => $request->get('title'),
             'body' => $request->get('body'),
-            'image' => '15.png',
+            'image' => $image,
             'date_of_publication' => $request->get('date_of_publication'),
             'published' => $request->get('published')
         ];
 
+//        dd($image, $params);
         DB::table('articles')->insert([
             'title' => $params['title'],
             'body' => $params['body'],
