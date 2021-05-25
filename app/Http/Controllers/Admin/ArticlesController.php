@@ -186,6 +186,9 @@ class ArticlesController extends Controller
                 ->with('good', '0');
         }
 
+        $imageDelete = public_path().'/img/'.$article->image;
+        File::delete($imageDelete);
+
         DB::table('articles')->where('id', '=',  $id)->delete();
 
 //        dd($article);
