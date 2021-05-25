@@ -20,7 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->boolean('published')->default(0);
-            $table->dateTime('date_of_publication');
+            $table->dateTime('date_of_publication')->nullable();
         });
     }
 

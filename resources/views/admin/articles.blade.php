@@ -186,7 +186,7 @@
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
                                                                 <label for="date_of_publication">Date of publication</label>
-                                                                <input class="form-control" id="date_of_publication" name="date_of_publication" type="date" />
+                                                                <input class="form-control" id="date_of_publication" name="date_of_publication" type="datetime-local" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -229,10 +229,10 @@
                                             @foreach($articles as $article)
                                             <tr>
                                                 <td>
-                                                    <div class="blog_list"><img class="img-fluid d-none d-lg-block" alt="image" src="https://via.placeholder.com/180x120" /></div>
+                                                    <div class="blog_list"><img class="img-fluid d-none d-lg-block" alt="image" src="/img/{{ $article->image }}" /></div>
                                                     <h4>{{ $article->title }}</h4>
                                                     <p>Posted by <b>Administrator</b> at {{ $article->created_at }}</p>
-                                                    <p>{{ $article->body }}</p>
+                                                    <p>{{ substr($article->body, 0, 150) . '...' }}</p>
                                                 </td>
 
                                                 <td>Articles</td>
@@ -297,7 +297,7 @@
                                                                             <div class="col-lg-6">
                                                                                 <div class="form-group">
                                                                                     <label for="date_of_publication">Date of publication</label>
-                                                                                    <input class="form-control" value="{{ $article->date_of_publication }}" id="date_of_publication" name="date_of_publication" type="date" />
+                                                                                    <input class="form-control" value="{{ $article->date_of_publication }}" id="date_of_publication" name="date_of_publication" type="datetime-local" />
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -360,11 +360,15 @@
                                                 </td>
                                             </tr>
                                             @endif
+                                            <!-- Pagination-->
 
                                         </tbody>
                                     </table>
                                 </div>
 
+                                <div class="d-flex justify-content-center">
+                                    {!! $articles->links() !!}
+                                </div>
 
                             </div>
                             <!-- end card-body -->

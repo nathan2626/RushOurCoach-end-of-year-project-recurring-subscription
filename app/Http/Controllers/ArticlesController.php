@@ -15,13 +15,13 @@ class ArticlesController extends Controller
         // Articles whose publication date is later than the current date or
         // which is not published must not appear on the site,
         // but remains administrable via the back office.
-        
+
         $current_date_time = Carbon::now();
 
         $articles = DB::table('articles')->where([
             ['published', '=', '1'],
             ['date_of_publication', '<', $current_date_time],
-        ])->get();
+        ])->orderByDesc('updated_at')->paginate(3);
 
         return view('/blog/articles', compact('articles'));
     }

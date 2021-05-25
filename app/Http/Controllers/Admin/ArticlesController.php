@@ -13,8 +13,7 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = DB::table('articles')->get();
-
+        $articles = DB::table('articles')->orderByDesc('updated_at')->paginate(5);
 
         return view('/admin/articles', compact('articles'));
     }
@@ -27,6 +26,8 @@ class ArticlesController extends Controller
         $date_of_publication = $request->get('date_of_publication');
         $published = $request->get('published');
 
+
+
         $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -38,7 +39,7 @@ class ArticlesController extends Controller
 
 
         // IMAGE MANAGEMENT
-        $count = DB::table('articles')->count()+1;
+        $count = DB::table('articles')->count();
 
         if ($image) {
 
@@ -61,14 +62,15 @@ class ArticlesController extends Controller
             'published' => $request->get('published')
         ];
 
-//        dd($image, $params);
-        DB::table('articles')->insert([
-            'title' => $params['title'],
-            'body' => $params['body'],
-            'image' => $params['image'],
-            'date_of_publication' => $params['date_of_publication'],
-            'published' => $params['published']
-        ]);
+//        dd($params);
+        $articles = Article::create($params);
+//        DB::table('articles')->insert([
+//            'title' => $params['title'],
+//            'body' => $params['body'],
+//            'image' => $params['image'],
+//            'date_of_publication' => $params['date_of_publication'],
+//            'published' => $params['published']
+//        ]);
 
         return redirect('/admin')
             ->with('status', 'Votre article a bien été créé !')
@@ -104,7 +106,7 @@ class ArticlesController extends Controller
             ]);
 
             // IMAGE MANAGEMENT
-            $count = DB::table('articles')->count()+1;
+            $count = DB::table('articles')->count();
             $request->validate([
                 'image' => 'mimes:jpeg,bmp,png'
             ]);
@@ -119,18 +121,24 @@ class ArticlesController extends Controller
             $params = [
                 'title' => $request->get('title'),
                 'body' => $request->get('body'),
+                'image' => $image,
                 'date_of_publication' => $request->get('date_of_publication'),
                 'published' => $request->get('published')
             ];
 
-            DB::table('articles')->where([
+            $articles = Article::where([
                 ['id', '=', $id]
-            ])->update([
-                'title' => $params['title'],
-                'body' => $params['body'],
-                'date_of_publication' => $params['date_of_publication'],
-                'published' => $params['published']
-            ]);
+            ])->update($params);
+
+//            DB::table('articles')->where([
+//                ['id', '=', $id]
+//            ])->update([
+//                'title' => $params['title'],
+//                'body' => $params['body'],
+//                'image' => $params['image'],
+//                'date_of_publication' => $params['date_of_publication'],
+//                'published' => $params['published']
+//            ]);
 
 //        dd($article);
             return redirect('/admin')
@@ -159,15 +167,19 @@ class ArticlesController extends Controller
             'published' => $request->get('published')
         ];
 
-        DB::table('articles')->where([
+        $articles = Article::where([
             ['id', '=', $id]
-        ])->update([
-            'title' => $params['title'],
-            'body' => $params['body'],
-            'image' => $params['image'],
-            'date_of_publication' => $params['date_of_publication'],
-            'published' => $params['published']
-        ]);
+        ])->update($params);
+
+//        DB::table('articles')->where([
+//            ['id', '=', $id]
+//        ])->update([
+//            'title' => $params['title'],
+//            'body' => $params['body'],
+//            'image' => $params['image'],
+//            'date_of_publication' => $params['date_of_publication'],
+//            'published' => $params['published']
+//        ]);
 
 //        dd($article);
         return redirect('/admin')
@@ -189,7 +201,11 @@ class ArticlesController extends Controller
         $imageDelete = public_path().'/img/'.$article->image;
         File::delete($imageDelete);
 
-        DB::table('articles')->where('id', '=',  $id)->delete();
+        $articles = Article::where([
+            ['id', '=', $id]
+        ])->delete();
+
+//        DB::table('articles')->where('id', '=',  $id)->delete();
 
 //        dd($article);
         return redirect('/admin')

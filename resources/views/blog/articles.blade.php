@@ -19,7 +19,7 @@
 
             <!-- Blog post-->
             <div class="card mb-4">
-                <img class="card-img-top" src="/img/article1.png" alt="Card image cap" />
+                <img class="card-img-top" src="/img/{{ $article->image }}" alt="Card image cap" />
                 <div class="card-body">
                     <h2 class="card-title">{{ $article->title }}</h2>
                     <!-- Optimiser les perfs (gerer au niveau du back le substring) -->
@@ -44,10 +44,10 @@
             @endif
 
             <!-- Pagination-->
-            <ul class="pagination justify-content-center mb-4">
-                <li class="page-item"><a class="page-link" href="#!">← Older</a></li>
-                <li class="page-item disabled"><a class="page-link" href="#!">Newer →</a></li>
-            </ul>
+            <div class="d-flex justify-content-center">
+                {!! $articles->links() !!}
+            </div>
+            
         </div>
         <!-- Side widgets-->
         <div class="col-md-4">
