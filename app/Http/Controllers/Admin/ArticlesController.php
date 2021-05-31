@@ -13,7 +13,9 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = DB::table('articles')->orderByDesc('updated_at')->paginate(5);
+
+//        $articles = DB::table('articles')->orderByDesc('updated_at')->paginate(5);
+        $articles = Article::orderByDesc('updated_at')->paginate(5);
 
         return view('/admin/articles', compact('articles'));
     }
@@ -62,8 +64,8 @@ class ArticlesController extends Controller
             'published' => $request->get('published')
         ];
 
-//        dd($params);
         $articles = Article::create($params);
+
 //        DB::table('articles')->insert([
 //            'title' => $params['title'],
 //            'body' => $params['body'],

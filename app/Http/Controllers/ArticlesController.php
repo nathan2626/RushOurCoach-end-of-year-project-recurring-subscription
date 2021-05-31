@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\Article;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 
@@ -18,10 +19,16 @@ class ArticlesController extends Controller
 
         $current_date_time = Carbon::now();
 
-        $articles = DB::table('articles')->where([
+        $articles = Article::where([
             ['published', '=', '1'],
             ['date_of_publication', '<', $current_date_time],
         ])->orderByDesc('updated_at')->paginate(3);
+
+
+//        $articles = DB::table('articles')->where([
+//            ['published', '=', '1'],
+//            ['date_of_publication', '<', $current_date_time],
+//        ])->orderByDesc('updated_at')->paginate(3);
 
         return view('/blog/articles', compact('articles'));
     }
