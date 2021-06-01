@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+  background: -o-linear-gradient(top, #7579ff, #b224ef);
+  background: -moz-linear-gradient(top, #7579ff, #b224ef);
+  background: linear-gradient(top, #7579ff, #b224ef); padding-top: 10em; padding-bottom: 10em;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -49,7 +52,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row mt-2 mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Reset Password') }}
