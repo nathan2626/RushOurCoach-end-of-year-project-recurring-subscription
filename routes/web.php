@@ -52,6 +52,6 @@ Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::post('/dashboard', '\App\Http\Controllers\HomeController@editUser');
 
-Route::get('/dashboard/delete/{id}', '\App\Http\Controllers\HomeController@delete')->middleware(['auth']);
+Route::get('/dashboard/user/delete/{id}', '\App\Http\Controllers\HomeController@delete')->middleware(['auth']);
 
 

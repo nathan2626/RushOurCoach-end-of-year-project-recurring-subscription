@@ -16,7 +16,7 @@
 
                     {{ __('You are logged in!') }}
                 </div>
-                
+
                 <div class="card-body">
                     <form method="POST" enctype="multipart/form-data" action="">
                     @csrf
@@ -57,7 +57,7 @@
                             <button type="submit" class="ml-4">
                                 Edit
                             </button>
-                            <a class="ml-4" href="/user/delete/{{Auth::user()->id}}">
+                            <a class="ml-4" href="/dashboard/user/delete/{{Auth::user()->id}}">
                                 Delete
                             </a>
                         </div>
