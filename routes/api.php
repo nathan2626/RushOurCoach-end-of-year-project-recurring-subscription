@@ -25,3 +25,8 @@ Route::post('/reservation', [App\Http\Controllers\Api\ReservationController::cla
 Route::post('/reservation/annulation/{token}', [App\Http\Controllers\Api\ReservationController::class, 'cancel'])->name('cancel');
 
 Route::post('/contact', [App\Http\Controllers\Api\ContactController::class, 'send'])->name('send');
+
+Route::post('auth/register', [\App\Http\Controllers\Api\ApiTokenController::class, 'register']);
+Route::post('auth/login', [\App\Http\Controllers\Api\ApiTokenController::class, 'login']);
+Route::middleware('auth:sanctum')->post('auth/me', [\App\Http\Controllers\Api\ApiTokenController::class, 'me']);
+Route::middleware('auth:sanctum')->post('auth/logout', [\App\Http\Controllers\Api\ApiTokenController::class, 'logout']);
