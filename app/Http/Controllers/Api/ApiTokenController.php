@@ -64,7 +64,7 @@ class ApiTokenController extends Controller
             return response()->json([
                 "error"=> "The provided credentials are incorrect."
             ], 401);
-
+        }
 
         //3 - clear old tokens
         $user->tokens()->where('tokenable_id', $user->id)->delete();

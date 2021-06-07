@@ -30,3 +30,5 @@ Route::post('auth/register', [\App\Http\Controllers\Api\ApiTokenController::clas
 Route::post('auth/login', [\App\Http\Controllers\Api\ApiTokenController::class, 'login']);
 Route::middleware('auth:sanctum')->post('auth/me', [\App\Http\Controllers\Api\ApiTokenController::class, 'me']);
 Route::middleware('auth:sanctum')->post('auth/logout', [\App\Http\Controllers\Api\ApiTokenController::class, 'logout']);
+
+Route::apiResource('articles', \App\Http\Controllers\Api\ArticlesController::class );
